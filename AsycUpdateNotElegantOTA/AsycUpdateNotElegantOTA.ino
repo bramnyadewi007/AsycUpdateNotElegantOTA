@@ -2,6 +2,7 @@
 original source from here -->  https://github.com/lbernstone/asyncUpdate
 new -->show progess every 5% on Serial Monitor 
 new -->new redirect page after update
+new -->move ESP.restart to main loop
 ************************************************************************/
 
 #include <ESPAsyncWebServer.h>
