@@ -1,3 +1,9 @@
+/************************************************************************
+original source from here -->  https://github.com/lbernstone/asyncUpdate
+new -->show progess every 5% on Serial Monitor 
+new -->new redirect page after update
+************************************************************************/
+
 #include <ESPAsyncWebServer.h>
 #ifdef ESP8266
 #include <Updater.h>
@@ -55,7 +61,7 @@ void handleDoUpdate(AsyncWebServerRequest *request, const String& filename, size
   if (!index) {
     Serial.println("Update");
     content_len = request->contentLength();
-    Serial.printf("update size: %d%%\n", Update.size());
+    //Serial.printf("update size: %d%%\n", Update.size());
     // if filename includes spiffs, update the spiffs partition
     int cmd = (filename.indexOf("spiffs") > -1) ? U_PART : U_FLASH;
 #ifdef ESP8266
@@ -73,7 +79,7 @@ void handleDoUpdate(AsyncWebServerRequest *request, const String& filename, size
 #ifdef ESP8266
   } else {
     updt = (Update.progress() * 100) / Update.size();
-    if (lastupdates != updates && updates % 5 == 0) {
+    if (lastupdates != updates && updates % 5 == 0) { //show progess every 5%
       Serial.printf("Progress: %d%%\n", (Update.progress() * 100) / Update.size());
     }
     //Serial.printf("Progress: %d%%\n", (Update.progress() * 100) / Update.size());
