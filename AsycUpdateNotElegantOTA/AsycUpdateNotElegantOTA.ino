@@ -16,8 +16,8 @@ new -->move ESP.restart to main loop
 #define U_PART U_SPIFFS
 #endif
 
-#define MYSSID "243wifi"
-#define PASSWD "243243discovery"
+#define MYSSID "your_wifi_ssid"
+#define PASSWD "your_wifi_password"
 
 AsyncWebServer server(80);
 size_t content_len;
